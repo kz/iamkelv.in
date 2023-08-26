@@ -12,7 +12,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({ href, text }) => (
 );
 
 const Header = () => (
-  <header className='flex justify-between'>
+  <header className='mb-4 flex justify-between'>
     <div className='text-lg font-semibold'>Kelvin Zhang</div>
     <nav className='space-x-2 md:space-x-6'>
       <HeaderLink href='/' text='About' />
