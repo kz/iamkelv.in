@@ -35,7 +35,7 @@ const Header = () => (
       <Link href='/' className='whitespace-nowrap text-lg font-semibold'>
         Kelvin Zhang
       </Link>
-      <nav className='mb-2 flex flex-col last:mb-0 md:flex-row md:space-x-6 md:last:mb-0'>
+      <nav className='mb-2 flex flex-col last:mb-0 md:flex-row md:space-x-6'>
         <HeaderLink href='/' text='About' />
         <HeaderLink href='/blog' text='Blog' />
         <HeaderLink href='/projects' text='Projects' />
