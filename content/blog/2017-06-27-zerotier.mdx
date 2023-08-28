@@ -1,0 +1,50 @@
+---
+title: 'Accessing your Raspberry Pi securely from the Internet using ZeroTier'
+slug: 'raspberry-pi-tunnel-with-zerotier'
+created: 2017-06-27 20:34 +0100
+updated: 2020-06-14 14:30 +0100
+excerpt: 'A tutorial on setting up ZeroTier on your Raspberry Pi to access it away from home securely.'
+---
+
+_(Edited on 14th June 2020 to update the download link.)_
+
+When you need to access your Raspberry Pi from home, exposing your public IP/using dynamic DNS and opening ports can expose your Pi to potential security threats, especially if you're using password-based authentication or running services behind these ports.
+
+The well-known method of doing it is to use a VPN. Whereas OpenVPN is a common solution, [ZeroTier](https://zerotier.com/) heavily outshines it. OpenVPN can be cumbersome to set up and maintain (especially if things go wrong), and provisioning new devices can be a pain with having to generate certificates. In comparison, ZeroTier can be installed with a single bash script, and your virtual network can be managed with their web panel which enables you to provision devices, assign static IPs and more.
+
+If you're wondering how secure and reliable ZeroTier is, check out their [manual](https://www.zerotier.com/manual/). ZeroTier is also open source, with their codebase available on [GitHub](https://github.com/zerotier/ZeroTierOne).
+
+## Installation
+
+### ZeroTier Central
+
+ZeroTier Central is the web panel where you control your virtual network and manage connected devices. First, set up your network by registering your account at [https://my.zerotier.com/](https://my.zerotier.com/). Next, create your network by navigating to [https://my.zerotier.com/network](https://my.zerotier.com/network) and clicking _Create_. Then, click on your newly created network entry and follow these steps:
+
+1. Change the name to something less random
+2. Under _IPv4 Auto-Assign_, check _Auto-Assign from Range_ and click on an IP range which you know will not conflict with the private IP ranges of any networks you use your devices on (ZeroTier will automatically assign your devices an IP from this range)
+3. Under _Access Control_, ensure _Certificate (Private Network)_ is checked
+4. Take note of the _Network ID_
+
+### Raspberry Pi
+
+We will now set up ZeroTier on your Raspberry Pi. Note that if you are using a Raspberry Pi B or Zero W and run into issues, you may have to apply a patch [detailed here](https://github.com/zerotier/ZeroTierOne/issues/510#issuecomment-351093694) (thanks to [mrexodia](https://iamkelv.in/blog/2017/06/zerotier.html#comment-3658807685) for the tip!). Follow the following instructions:
+
+1. Run the shell command under their [download page](https://www.zerotier.com/download.shtml) (the more secure, GPG option is recommended).
+2. To ensure ZeroTier starts on system boot, run `sudo systemctl enable zerotier-one`
+3. Check if everything is working by running `sudo zerotier-cli status`; it should return `200 info [ID] [version] ONLINE` if all is fine
+4. To join the network, run `sudo zerotier-cli join [Network ID]`
+5. Authenticate your device by going to `https://my.zerotier.com/network/[Network ID]` (the configuration page we used in the previous section), scrolling down to _Members_ and checking the _Auth_ checkbox
+6. Optionally, assign your Pi a nicer IP address (such as one ending in _.1_) by going to the _Managed IPs_ column, entering an IP address within the IP range you chose in the previous section, then pressing the plus icon to save your changes (you can also delete the old one by pressing the bin icon)
+7. Check that your Raspberry Pi is properly connected by running `sudo zerotier-cli listnetworks` to see `200 listnetworks [...] OK PRIVATE [...] [The IP(s) you assigned the Raspberry Pi]/24`
+8. To have your Raspberry Pi automatically join the virtual network on system boot, simply run `sudo touch /var/lib/zerotier-one/networks.d/[Network ID].conf`
+9. If you have UFW or any other firewall software installed, ensure that you allow traffic going to and from your private IP range
+
+### Client Devices
+
+Finally, let's set up your client devices you will use to connect to the Raspberry Pi from any Internet-available network in the world. On Linux clients, the setup is the same as for the Raspberry Pi. ZeroTier also has Android and iOS apps which you can find on their [download page](https://www.zerotier.com/download.shtml). After connecting your client devices to the same network, you can check that the other devices are resolvable using `sudo zerotier-cli listpeers`. Finally, you can connect to your Raspberry Pi by using the private IP address you assigned to it.
+
+## Conclusion
+
+For me, using ZeroTier is a very pleasant experience. I can access my Raspberry Pi from anywhere in the world with an Internet connection without having to use port forwarding or exposing my Pi directly to the Internet. Another added advantage is that I can add a UFW/iptables rule to block all inbound traffic to SSH and other services originating from all IP addresses other than my home and ZeroTier IP address ranges. The time spent setting up your devices is well worth the security and convenience which ZeroTier provides.
+
+If you found this blog post useful or have any questions, leave a comment below or tweet me [@KelvZhan](https://twitter.com/KelvZhan)!
