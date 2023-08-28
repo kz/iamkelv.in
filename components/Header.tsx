@@ -32,10 +32,10 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href }) => (
 const Header = () => (
   <header>
     <div className='md:flex md:justify-between'>
-      <div className='whitespace-nowrap text-lg font-semibold'>
+      <Link href='/' className='whitespace-nowrap text-lg font-semibold'>
         Kelvin Zhang
-      </div>
-      <nav className='mb-2 flex flex-col md:flex-row md:space-x-6'>
+      </Link>
+      <nav className='mb-2 flex flex-col last:mb-0 md:flex-row md:space-x-6 md:last:mb-0'>
         <HeaderLink href='/' text='About' />
         <HeaderLink href='/blog' text='Blog' />
         <HeaderLink href='/projects' text='Projects' />
