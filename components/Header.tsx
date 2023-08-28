@@ -1,27 +1,17 @@
+import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 import { IconType } from 'react-icons';
 import {
-  IoLogoLinkedin,
-  IoMdMail,
-  IoLogoTwitter,
   IoLogoGithub,
+  IoLogoLinkedin,
+  IoLogoTwitter,
+  IoMdMail,
 } from 'react-icons/io';
-
-interface HeaderLinkProps {
-  href: string;
-  text: string;
-}
 
 interface SocialIconProps {
   Icon: IconType;
   href: string;
 }
-
-const HeaderLink: React.FC<HeaderLinkProps> = ({ href, text }) => (
-  <Link href={href} className='mb-1 text-blue-500'>
-    {text}
-  </Link>
-);
 
 const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href }) => (
   <a target='_blank' href={href} className='h-7 w-7'>
@@ -32,14 +22,13 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href }) => (
 const Header = () => (
   <header>
     <div className='md:flex md:justify-between'>
-      <Link href='/' className='whitespace-nowrap text-lg font-semibold'>
+      <Link
+        href='/'
+        className='whitespace-nowrap text-lg font-semibold hover:underline'
+      >
         Kelvin Zhang
       </Link>
-      <nav className='mb-2 flex flex-col last:mb-0 md:flex-row md:space-x-6'>
-        <HeaderLink href='/' text='About' />
-        <HeaderLink href='/blog' text='Blog' />
-        <HeaderLink href='/projects' text='Projects' />
-      </nav>
+      <Navbar />
     </div>
     <div className='mb-4 flex'>
       <SocialIcon
