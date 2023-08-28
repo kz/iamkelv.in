@@ -18,7 +18,7 @@ interface SocialIconProps {
 }
 
 const HeaderLink: React.FC<HeaderLinkProps> = ({ href, text }) => (
-  <Link href={href} className='text-blue-500'>
+  <Link href={href} className='mb-1 text-blue-500'>
     {text}
   </Link>
 );
@@ -31,9 +31,11 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href }) => (
 
 const Header = () => (
   <header>
-    <div className='flex justify-between'>
-      <div className='text-lg font-semibold'>Kelvin Zhang</div>
-      <nav className='space-x-3 md:space-x-6'>
+    <div className='md:flex md:justify-between'>
+      <div className='whitespace-nowrap text-lg font-semibold'>
+        Kelvin Zhang
+      </div>
+      <nav className='mb-2 flex flex-col md:flex-row md:space-x-6'>
         <HeaderLink href='/' text='About' />
         <HeaderLink href='/blog' text='Blog' />
         <HeaderLink href='/projects' text='Projects' />
