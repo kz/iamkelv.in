@@ -29,7 +29,6 @@ const Navbar = () => {
       <HeaderLink
         href='/blog'
         text='Blog'
-        ƒ
         isActive={currentRoute.startsWith('/blog')}
       />
       <HeaderLink
