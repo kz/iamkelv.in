@@ -17,6 +17,16 @@ const config: Config = {
               marginBottom: '1em',
               lineHeight: '1.6',
             },
+            h2: {
+              marginTop: '0.7em',
+              marginBottom: '0.7em',
+              lineHeight: '1.4',
+            },
+            h3: {
+              marginTop: '0.83em',
+              marginBottom: '0.83em',
+              lineHeight: '1.4',
+            },
           },
         },
       }),

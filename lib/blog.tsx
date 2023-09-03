@@ -1,12 +1,19 @@
-import path from 'path';
+import assert from 'assert';
 import fs from 'fs';
 import { sync } from 'glob';
 import matter from 'gray-matter';
+import path from 'path';
 
 const postsPath = path.join(process.cwd(), 'content/blog');
 
+export interface Post {
+  metadata: PostMetadata;
+  content: string;
+}
+
 export interface PostMetadata {
   type: 'internal';
+  sourceFilepath: string;
   title: string;
   slug: string;
   created: Date;
@@ -16,6 +23,7 @@ export interface PostMetadata {
 
 export interface ExternalMetadata {
   type: 'external';
+  sourceFilepath: string;
   title: string;
   // Slug is used as a unique identifier.
   slug: string;
@@ -25,10 +33,11 @@ export interface ExternalMetadata {
 
 export type BlogMetadata = PostMetadata | ExternalMetadata;
 
-function matterToMetadata(data: any): BlogMetadata {
+function matterToMetadata(path: string, data: any): BlogMetadata {
   if (data.type === 'external') {
     return {
       type: 'external',
+      sourceFilepath: path,
       title: data.title,
       slug: data.slug,
       link: data.link,
@@ -37,6 +46,7 @@ function matterToMetadata(data: any): BlogMetadata {
   } else {
     return {
       type: 'internal',
+      sourceFilepath: path,
       title: data.title,
       slug: data.slug,
       created: data.created,
@@ -46,12 +56,30 @@ function matterToMetadata(data: any): BlogMetadata {
   }
 }
 
-export async function getBlogLinksMetadata() {
+export async function getBlogLinksMetadata({
+  postsOnly = false,
+}: { postsOnly?: boolean } = {}) {
   const paths = sync(`${postsPath}/*.mdx`);
 
-  return paths.map((path) => {
-    const source = fs.readFileSync(path);
-    const { data } = matter(source);
-    return matterToMetadata(data);
-  });
+  return paths
+    .map((path) => {
+      const source = fs.readFileSync(path);
+      const { data } = matter(source);
+      return matterToMetadata(path, data);
+    })
+    .filter((metadata) => !postsOnly || metadata.type === 'internal');
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<Post> {
+  // Since getBlogPostBySlug is called for each blog post generation, each blog
+  // MDX file is read n^2 times, where n is the number of files. This is not
+  // efficient, but is fine since this blog is generated statically.
+  const postsMetadata = await getBlogLinksMetadata({ postsOnly: true });
+  const metadata = postsMetadata.find((metadata) => metadata.slug === slug);
+  assert(metadata !== undefined);
+  assert(metadata.type === 'internal');
+
+  const source = fs.readFileSync(metadata.sourceFilepath);
+  const { content } = matter(source);
+  return { metadata, content };
 }
