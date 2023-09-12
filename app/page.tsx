@@ -1,7 +1,12 @@
-import About from '@/content/about.mdx';
 import Image from 'next/image';
+import fs from 'fs';
+import path from 'path';
+import Markdown from '@/components/Markdown';
 
 export default function Home() {
+  const aboutPath = path.join(process.cwd(), 'content/about.md');
+  const content = fs.readFileSync(aboutPath, 'utf8');
+
   return (
     <main>
       <div className='mb-4 flex justify-center'>
@@ -14,7 +19,7 @@ export default function Home() {
         />
       </div>
       <div className='prose prose-lg'>
-        <About />
+        <Markdown content={content} />
       </div>
     </main>
   );

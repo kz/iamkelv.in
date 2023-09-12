@@ -59,11 +59,11 @@ function matterToMetadata(path: string, data: any): BlogMetadata {
 export async function getBlogLinksMetadata({
   postsOnly = false,
 }: { postsOnly?: boolean } = {}) {
-  const paths = sync(`${postsPath}/*.mdx`);
+  const paths = sync(`${postsPath}/*.md`);
 
   return paths
     .map((path) => {
-      const source = fs.readFileSync(path);
+      const source = fs.readFileSync(path, 'utf8');
       const { data } = matter(source);
       return matterToMetadata(path, data);
     })
