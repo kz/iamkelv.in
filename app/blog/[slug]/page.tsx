@@ -30,14 +30,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     .map((style) => `[&_:not(pre)>code]:${style}`)
     .join(' ');
 
-  const headingStyles = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-    .map((heading) =>
-      ['bg-slate-400'].map((s) => `[&_${heading}>a]:${s}`).join(' ')
-    )
-    .join(' ');
-
   return (
-    <div className={`prose prose-lg ${inlineCodeStyles} ${headingStyles}`}>
+    <div className={`prose prose-lg ${inlineCodeStyles}`}>
       <Markdown content={content} />
     </div>
   );
