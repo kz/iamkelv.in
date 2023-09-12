@@ -15,6 +15,7 @@
     "@types/react": "18.2.21",
     "autoprefixer": "^10.4.15",
     "dayjs": "^1.11.9",
+    "disqus-react": "^1.1.5",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "glob": "^10.3.3",

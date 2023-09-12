@@ -1,3 +1,4 @@
+import Disqus from '@/components/Disqus';
 import Markdown from '@/components/Markdown';
 import { getBlogLinksMetadata, getBlogPostBySlug } from '@/lib/blog';
 
@@ -35,10 +36,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ].join(' ');
 
   return (
-    <div
-      className={`prose prose-lg ${inlineCodeClasses} ${headingAnchorClasses}`}
-    >
-      <Markdown content={content} />
+    <div>
+      <div
+        className={`prose prose-lg ${inlineCodeClasses} ${headingAnchorClasses}`}
+      >
+        <Markdown content={content} />
+      </div>
+      <Disqus
+        url={`https://iamkelv.in/blog/${params.slug}`}
+        slug={metadata.slug}
+        title={metadata.title}
+      />
     </div>
   );
 }
