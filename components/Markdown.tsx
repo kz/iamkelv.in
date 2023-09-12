@@ -8,9 +8,18 @@ import remarkToc from 'remark-toc';
 export default function Markdown({ content }: { content: string }) {
   return (
     <ReactMarkdown
-      children={content}
       remarkPlugins={[remarkFormatter, remarkMdxFormatter, remarkToc]}
-      rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
-    />
+      rehypePlugins={[
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'wrap',
+          },
+        ],
+      ]}
+    >
+      {content}
+    </ReactMarkdown>
   );
 }
