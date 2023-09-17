@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://iamkelv.in
+
+# Sitemaps
+Sitemap: https://iamkelv.in/sitemap.xml

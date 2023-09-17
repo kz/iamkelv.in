@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
@@ -22,6 +23,7 @@
     "gray-matter": "^4.0.3",
     "next": "13.4.19",
     "next-mdx-remote": "^4.4.1",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
