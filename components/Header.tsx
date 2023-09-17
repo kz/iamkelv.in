@@ -14,7 +14,11 @@ interface SocialIconProps {
 }
 
 const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href }) => (
-  <a target='_blank' href={href} className='h-7 w-7'>
+  <a
+    target='_blank'
+    href={href}
+    className='h-7 w-7 text-slate-600 hover:text-slate-950'
+  >
     <Icon />
   </a>
 );
@@ -29,6 +33,9 @@ const Header = () => (
         Kelvin Zhang
       </Link>
       <Navbar />
+    </div>
+    <div className='mb-1 text-sm font-semibold text-slate-600 hover:text-slate-950'>
+      <a href='mailto:hello@iamkelv.in'>hello@iamkelv.in</a>
     </div>
     <div className='mb-4 flex'>
       <SocialIcon
