@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ].join(' ');
 
   return (
-    <div>
+    <main>
       <div
         className={`prose prose-lg ${inlineCodeClasses} ${headingAnchorClasses}`}
       >
@@ -47,6 +47,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         slug={metadata.slug}
         title={metadata.title}
       />
-    </div>
+    </main>
   );
 }
