@@ -2,6 +2,7 @@ import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import Markdown from '@/components/Markdown';
+import Link from 'next/link';
 
 export default function Home() {
   const aboutPath = path.join(process.cwd(), 'content/about.md');
@@ -18,9 +19,15 @@ export default function Home() {
           className='rounded-full'
         />
       </div>
-      <div className='prose prose-lg'>
+      <div className='prose prose-lg mb-4'>
         <Markdown content={content} />
       </div>
+      <Link
+        href='/blog'
+        className='text-lg text-blue-500 hover:text-blue-600 hover:underline'
+      >
+        Now read the blog →
+      </Link>
     </main>
   );
 }
