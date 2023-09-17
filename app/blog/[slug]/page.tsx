@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 function toDateString(date: Date) {
-  return dayjs(date).format('ddd, MMM D, YYYY ');
+  return dayjs(date).format('ddd, MMM D, YYYY');
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
