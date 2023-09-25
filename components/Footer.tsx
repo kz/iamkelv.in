@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className='text-xs text-gray-400'>
-      Built from scratch with NextJS and Tailwind CSS.
+      Built from scratch with Next.js and Tailwind CSS.
       <br />
       Check out the source code on{' '}
       <a
