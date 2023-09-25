@@ -2,6 +2,20 @@ import Markdown from '@/components/Markdown';
 import { getProjects } from '@/lib/projects';
 import path from 'path';
 import fs from 'fs';
+import { Metadata } from 'next';
+import { openGraphDefaults, twitterDefaults } from '@/lib/metadata';
+
+export const metadata: Metadata = {
+  title: 'Projects - Kelvin Zhang',
+  openGraph: {
+    ...openGraphDefaults,
+    title: 'Projects - Kelvin Zhang',
+  },
+  twitter: {
+    ...twitterDefaults,
+    title: 'Projects - Kelvin Zhang',
+  },
+};
 
 export default async function Projects() {
   const projectsIntroPath = path.join(

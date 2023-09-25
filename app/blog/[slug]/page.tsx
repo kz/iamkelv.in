@@ -1,7 +1,13 @@
 import Disqus from '@/components/Disqus';
 import Markdown from '@/components/Markdown';
 import { getBlogLinksMetadata, getBlogPostBySlug } from '@/lib/blog';
+import {
+  openGraphDefaults,
+  otherDefaults,
+  twitterDefaults,
+} from '@/lib/metadata';
 import dayjs from 'dayjs';
+import { Metadata, ResolvingMetadata } from 'next';
 import Link from 'next/link';
 
 // 404 when an unsupported slug is visited.
@@ -12,6 +18,36 @@ export async function generateStaticParams() {
   return metadata.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { metadata } = await getBlogPostBySlug(params.slug);
+
+  const title = `${metadata.title} - Kelvin Zhang`;
+  return {
+    title: title,
+    description: metadata.excerpt,
+    openGraph: {
+      ...openGraphDefaults,
+      title: title,
+      description: metadata.excerpt,
+      type: 'article',
+      authors: ['Kelvin Zhang'],
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: title,
+      description: metadata.excerpt,
+    },
+    other: {
+      ...otherDefaults,
+      'article:published_time': dayjs(metadata.created).toISOString(),
+      'article:modified_time': dayjs(metadata.updated).toISOString(),
+    },
+  };
 }
 
 function toDateString(date: Date) {

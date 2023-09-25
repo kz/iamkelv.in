@@ -1,7 +1,21 @@
 import { BlogMetadata, getBlogLinksMetadata } from '@/lib/blog';
+import { openGraphDefaults, twitterDefaults } from '@/lib/metadata';
 import dayjs from 'dayjs';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { IoMdOpen } from 'react-icons/io';
+
+export const metadata: Metadata = {
+  title: 'Blog - Kelvin Zhang',
+  openGraph: {
+    ...openGraphDefaults,
+    title: 'Blog - Kelvin Zhang',
+  },
+  twitter: {
+    ...twitterDefaults,
+    title: 'Blog - Kelvin Zhang',
+  },
+};
 
 function toDateString(date: Date) {
   return dayjs(date).format('MMM YYYY');
