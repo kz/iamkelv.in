@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import Markdown from '@/components/Markdown';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const aboutPath = path.join(process.cwd(), 'content/about.md');
@@ -22,12 +23,15 @@ export default function Home() {
       <div className='prose prose-lg mb-4'>
         <Markdown content={content} />
       </div>
-      <Link
-        href='/blog'
-        className='text-lg text-blue-500 hover:text-blue-600 hover:underline'
-      >
-        Now read the blog →
-      </Link>
+      <div className='mb-5'>
+        <Link
+          href='/blog'
+          className='text-lg text-blue-500 hover:text-blue-600 hover:underline'
+        >
+          Now read the blog →
+        </Link>
+      </div>
+      <Footer />
     </main>
   );
 }

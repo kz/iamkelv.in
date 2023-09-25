@@ -1,4 +1,5 @@
 import Disqus from '@/components/Disqus';
+import Footer from '@/components/Footer';
 import Markdown from '@/components/Markdown';
 import { getBlogLinksMetadata, getBlogPostBySlug } from '@/lib/blog';
 import {
@@ -78,27 +79,30 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ].join(' ');
 
   return (
-    <main>
-      <h1 className='mb-2 text-3xl font-bold'>{metadata.title}</h1>
-      <p className='mb-4 text-lg text-slate-500'>
-        {toDateString(metadata.created)}
-      </p>
-      <div
-        className={`prose prose-lg mb-8 ${inlineCodeClasses} ${headingAnchorClasses}`}
-      >
-        <Markdown content={content} />
-      </div>
-      <Link
-        href='/blog'
-        className='text-lg text-blue-500 hover:text-blue-600 hover:underline'
-      >
-        ← Back to Blog
-      </Link>
-      <Disqus
-        url={`https://iamkelv.in/blog/${params.slug}`}
-        slug={metadata.slug}
-        title={metadata.title}
-      />
-    </main>
+    <div>
+      <main className='mb-4'>
+        <h1 className='mb-2 text-3xl font-bold'>{metadata.title}</h1>
+        <p className='mb-4 text-lg text-slate-500'>
+          {toDateString(metadata.created)}
+        </p>
+        <div
+          className={`prose prose-lg mb-8 ${inlineCodeClasses} ${headingAnchorClasses}`}
+        >
+          <Markdown content={content} />
+        </div>
+        <Link
+          href='/blog'
+          className='text-lg text-blue-500 hover:text-blue-600 hover:underline'
+        >
+          ← Back to Blog
+        </Link>
+        <Disqus
+          url={`https://iamkelv.in/blog/${params.slug}`}
+          slug={metadata.slug}
+          title={metadata.title}
+        />
+      </main>
+      <Footer />
+    </div>
   );
 }
