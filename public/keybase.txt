@@ -1,0 +1,87 @@
+==================================================================
+https://keybase.io/kz
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://iamkelv.in
+  * I am kz (https://keybase.io/kz) on keybase.
+  * I have a public key with fingerprint 9F70 31A9 2EC5 E1D6 3E49  CCF5 CDD7 72B5 8085 E793
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01014b1e52c4d6e18604d01da1991024c731233f9663b39c29a3178f9ad1b1c8b0950a",
+      "fingerprint": "9f7031a92ec5e1d63e49ccf5cdd772b58085e793",
+      "host": "keybase.io",
+      "key_id": "cdd772b58085e793",
+      "kid": "01014b1e52c4d6e18604d01da1991024c731233f9663b39c29a3178f9ad1b1c8b0950a",
+      "uid": "63f2d8699938005b9812964d1297cc19",
+      "username": "kz"
+    },
+    "merkle_root": {
+      "ctime": 1696153285,
+      "hash_meta": "fefdb58729c45fe50bd4ed54d731affd1c82ca69c71a12984c7e08c3d8b79d78",
+      "seqno": 24982659
+    },
+    "revoke": {
+      "sig_ids": [
+        "50a9efd278c702a208ec45547ec85865cdf60a3d59029534dcc6b5ce11e85c400f"
+      ]
+    },
+    "service": {
+      "hostname": "iamkelv.in",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1696153289,
+  "expire_in": 157680000,
+  "prev": "aa46827d6ba701a760c7b68ca4266485236fabc3a908207be1bd2755753f3630",
+  "seqno": 29,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMPVAnicrVNrbBVFGL0VKLSlIg95lIe4kVcsOPuanSktFkFpYgIKNSRAuczOzrbL
+be9e9+69AqW2lZRHhUKogJWSWEsiYmsLApFXUhAwUFuoFikpIBHlUWxtGx4JoeLc
+BhNj/OmfnezM+c453/lmTsX38cRGNVxyDhYU3SqNqj9phzxs1IyzuYJuGyuFpFzB
+x3oXlm2woOv1WYaQJAARiIouMlWiigGZiCBQDCAaRMRYBJJCNVmUZNnEEMq6jKmE
+iSxqyMTEEHWRIh1gFRAhUTAtfyZzAo7ldzktNjUgiwRLjKpMNKDMFEypqVLD0DRJ
+VxFAKtOwzAuz7GCkgpvTSZBNs2y+x3+8vfb+A/8/+w710kHZlAwEMcYyAkDVMRIl
+DBWDfzVKRRwBBpnjJzks4nWVkJco5DDHl828jm27kVipa0UORYihqMoSUnlrJJjl
+zWEu4TUmMw3ehyZhqqgmU4FuKMxQFYMbJaZpcE8SJRBTTSRcFfEOGEBUNpCuYUND
+3EGQveu3hSRJwUiCKuYWHBa2fSyiHrQyeWJBIWmxwPvCXEzSENWARCSAGJdUFY1R
+pCLIZ2BCQGRDxUDCqqwYlEJdpUwUGVKpAoApZORF1JywRXvJIyN62rpFcnwsOzzN
+8nNDAcd2bWpn8/0s1w0EkyKxuCsDEeB7TPc+pfDqlt/g14NXhJkTtGw/j4kj/50Y
+ThTYioDlMK8VQaga5LMAIKLDwpySEAUiSTOgTjQgEg0CqukQUaJIECpIlWRoEp3K
+BAMkAU1nos5TUFVNlU0ZyuAfEXIpl2RyTp6bn7ghhwl5J08s6euJivVE93sm8m48
+sTHP/f2aBhwf9CRdWfAwsK07ZfyckSOrK6czsXzmofNuZ/zez2rLGq8dPdKvMw3t
+8ru5Mclw9pgOX41ywpMS3Z725/wb7WsXny5hfTt+aNvQN3fu9f49fcYcT0i88kHn
+4M19Gus3z1pW2u/Fo/Outm9f+vjy4cbQpC3N46/Mn+vUbnk7c8/40tUFNfvX1uTv
+qnwjfGdyefejIxcrUrsqNr2ws5Q0JDyY0DbYu/BsSQ3yN6YP7R70Zcy21v2pL7Xv
+fNOKWvrOJ0tOL+oZ8akv7sOpdxpazsRX74hO/fZenaf4Xty4pglbnz09Nnnd8P4r
+cM/etrZBhc9Pv3mg4Q+l7pp2YPR3gVa9NjN+Y6j16uTyn+rCDx/NrH6Yv6tjfnJF
+R0nh3RGbpN+/f33j6o51uS97vp4amnC+eUXhz8mHlQvBQ+uvXSqZNAzBhc1zRC2v
+ePixGfe3NRd/lBHtXrTVsUti81o+P9KSejBhwL664qjjw2tyyswzZKuzfZ07+kE9
+TKa1CQvaKuNu3/glfZ5+pUfZsW/RlBkfvzVw1dpZt6Y+qerf2hMfs3yimRAz6t7j
+gtyMcbO/GPLV+7/a5cUb72cN7GrKfyVq77ndy4aEfqxa/5uidH4zck7jq12ritLK
+9gxbfvumsD6QYhVlplwuWnBOqOy6kHe9auJrVbO613gLglVpTVPK8v0pxs2KfRNn
+n6vPONYSd3fh0KaxuzesCRee+gu9Af+5
+=NsBh
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kz
+
+==================================================================
