@@ -43,11 +43,14 @@
       <p>
         <strong>Retention and deletion.</strong> The owner controls retention of
         the archive and can delete its files. The script retains current and
-        previous encrypted working snapshots; Google Cloud soft delete retains
-        retired snapshots for seven days. Google Sheets revision history,
-        service backups, and separately connected applications may retain
-        additional copies. Revoking OAuth access stops future Google access but
-        does not automatically delete the archive.
+        previous encrypted working snapshots. Older working snapshots are
+        deleted after a new checkpoint is committed, with soft deletion
+        disabled. Previously soft-deleted copies may remain until their original
+        seven-day retention expires. Administrative infrastructure backups
+        retain version history and seven-day soft deletion. Google Sheets
+        revision history, service backups, and separately connected applications
+        may retain additional copies. Revoking OAuth access stops future Google
+        access but does not automatically delete the archive.
       </p>
       <p>
         <strong>Account control.</strong> The owner can revoke the application's
