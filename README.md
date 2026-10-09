@@ -41,7 +41,9 @@ privacy information, use information, and styles. It has no archive data or logo
 
 The directory is excluded from the generated sitemap and disallowed in
 `robots.txt`. Each HTML page also has a `noindex` meta tag, and Netlify serves an
-`X-Robots-Tag` header using `public/_headers`. These are crawler directives, not
+`X-Robots-Tag` header using `public/_headers`. Use the extensionless `/privacy`
+and `/terms` URLs in navigation and OAuth settings so the links work with the
+host's clean URLs. These are crawler directives, not
 access controls. A crawler blocked by `robots.txt` cannot fetch the `noindex` tag;
 robots rules alone cannot guarantee that a URL never appears in search results.
 
