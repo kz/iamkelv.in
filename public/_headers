@@ -1,0 +1,5 @@
+/conversations-sync
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/conversations-sync/*
+  X-Robots-Tag: noindex, nofollow, noarchive

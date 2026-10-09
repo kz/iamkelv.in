@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /conversations-sync
 
 # Host
 Host: https://iamkelv.in

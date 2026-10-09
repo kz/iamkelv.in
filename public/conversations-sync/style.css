@@ -1,0 +1,38 @@
+body {
+  max-width: 740px;
+  margin: 64px auto;
+  padding: 0 24px;
+  font:
+    17px/1.6 system-ui,
+    sans-serif;
+  color: #23313b;
+  background: #fafbf9;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+h2 {
+  margin-top: 40px;
+  font-size: 23px;
+}
+a {
+  color: #215c7d;
+}
+.label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #52636d;
+}
+footer {
+  margin: 48px 0;
+  color: #52636d;
+  font-size: 14px;
+}
+nav {
+  margin-top: 32px;
+}
+code {
+  overflow-wrap: anywhere;
+}

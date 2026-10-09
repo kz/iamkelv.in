@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Privacy information</title>
+    <link rel="stylesheet" href="/conversations-sync/style.css" />
+  </head>
+  <body>
+    <main>
+      <p class="label">Personal use only</p>
+      <p>Kelvin Zhang's Personal Conversations Sync Script</p>
+      <h1>Privacy information</h1>
+      <p>Last updated: 9 October 2026.</p>
+      <p>
+        <strong>Google access.</strong> The script requests the Google Drive
+        <code>drive.file</code> permission. It creates and updates the owner's
+        archive files and accesses files made available to this application. It
+        does not request access to all files in the Google account.
+      </p>
+      <p>
+        <strong>Data processed.</strong> The archive includes conversation text,
+        sender labels, timestamps, and information needed to represent edits and
+        deletions. Media attachments are not downloaded or archived; text
+        captions and simple attachment placeholders may be retained.
+      </p>
+      <p>
+        <strong>Storage.</strong> Archive content is stored in the owner's
+        Google Drive and Google Sheets. Encrypted working state is stored in a
+        private Google Cloud Storage bucket. OAuth credentials and encryption
+        keys are stored in Google Cloud Secret Manager. Local and cloud workers
+        process private working data while running.
+      </p>
+      <p>
+        <strong>Purpose and sharing.</strong> Google user data is used to
+        operate this personal archive. The script does not sell that data or use
+        it for advertising. Google services process the data as part of storage
+        and API operation. Any separate sharing or connection of the archive to
+        another application is controlled by the owner and is outside this
+        script's automatic sync function.
+      </p>
+      <p>
+        <strong>Retention and deletion.</strong> The owner controls retention of
+        the archive and can delete its files. The script retains current and
+        previous encrypted working snapshots; Google Cloud soft delete retains
+        retired snapshots for seven days. Google Sheets revision history,
+        service backups, and separately connected applications may retain
+        additional copies. Revoking OAuth access stops future Google access but
+        does not automatically delete the archive.
+      </p>
+      <p>
+        <strong>Account control.</strong> The owner can revoke the application's
+        connection in Google Account settings and stop its scheduled executions
+        in Google Cloud. The script has no public user accounts and does not
+        accept other users' data.
+      </p>
+      <nav aria-label="Information pages">
+        <a href="/conversations-sync/">Overview</a> &middot;
+        <a href="/conversations-sync/privacy.html">Privacy information</a>
+        &middot;
+        <a href="/conversations-sync/terms.html">Use and affiliation</a>
+      </nav>
+    </main>
+    <footer>
+      This information page contains no archive data, account credentials,
+      analytics, or sign-in form.
+    </footer>
+  </body>
+</html>

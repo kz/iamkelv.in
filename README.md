@@ -33,6 +33,21 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Personal sync information
+
+The static information pages live in `public/conversations-sync/` and are served
+at `/conversations-sync/`. This directory contains only public app information,
+privacy information, use information, and styles. It has no archive data or logo.
+
+The directory is excluded from the generated sitemap and disallowed in
+`robots.txt`. Each HTML page also has a `noindex` meta tag, and Netlify serves an
+`X-Robots-Tag` header using `public/_headers`. These are crawler directives, not
+access controls. A crawler blocked by `robots.txt` cannot fetch the `noindex` tag;
+robots rules alone cannot guarantee that a URL never appears in search results.
+
+`npm run build` exports the site to `out/`, then generates the sitemap and
+`robots.txt` directly into that deployment directory.
+
 ## Licenses
 
 - `app/icon.png` by [Twitter, Inc](https://github.com/twitter/twemoji), used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
